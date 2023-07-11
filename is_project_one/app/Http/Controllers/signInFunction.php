@@ -15,4 +15,16 @@ class signInFunction extends Controller
     function adminlogin(){
         return view('adminlogin');
     }
+    function loginPost(Request $request){
+        $request->validate([
+            'IDNumber' =>'required',
+            'password' => 'required',
+        ]);
+        $credentials = $request->only('idNumber','password');
+        if(Auth::attempt($credentials)){
+            return redirect()->intended(route(homepage));
+        }
+        return redirect(route('login'))->with("error", "invalid credentials");
+
+    }
 }

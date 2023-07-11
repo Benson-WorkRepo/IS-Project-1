@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\signInFunction;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/login', function(){
-    return view('login');
-});
-Route::get('/signup', function(){
-    return view('signup');
-});
-Route::get('/adminlogin', function(){
-    return view('admin login');
-    });
+})->name('homepage');
+Route::get('/login', [signInFunction::class, 'login']) ->name('login');
+Route::post('/login', [signInFunction::class, 'loginPost']) ->name('login.post');
+
+Route::get('/signup', [signInFunction::class, 'signup']) ->name('signup');
+Route::post('/signup', [signInFunction::class, 'signupPost']) ->name('signup.post');
+
+Route::get('/adminlogin', [signInFunction::class, 'adminlogin']) ->name('adminlogin');
+Route::post('/adminlogin', [signInFunction::class, 'adminloginPost']) ->name('adminlogin.post');
