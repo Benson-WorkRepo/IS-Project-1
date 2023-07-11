@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ward_credentials', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('ward');
+            $table->integer('bedNo');
+            $table->boolean('vacancy');
         });
     }
 

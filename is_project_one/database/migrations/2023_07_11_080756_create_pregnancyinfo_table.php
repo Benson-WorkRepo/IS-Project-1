@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pregnancyinfo', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('patientnumber');
+            $table->integer('Duration');
+            $table->date('checkindate')->nullable();
+            $table->date('checkoutdate')->nullable();
+            $table->string('ward');
+            $table->integer('bedNo');
         });
     }
 

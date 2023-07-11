@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('workID');
-            $table->();
+            $table->string('password');
         });
     }
 

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->integer('ID');
             $table->string('patientnumber');
-            $table->boolean('pregnancyStatus');
+            $table->boolean('pregnancyStatus')->default(false);
+            $table->string('password');
         });
     }
 
