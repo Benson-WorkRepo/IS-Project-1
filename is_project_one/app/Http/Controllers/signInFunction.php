@@ -42,7 +42,7 @@ class signInFunction extends Controller
       $data['phoneNo']   = $request->phoneNo;
       $data['idNumber'] = $request->idNumber;
       $data['password'] = Hash::make($request->password); 
-      user::create($data);
+      $user = customercredentials::create($data);
       if(!$user){
         return redirect(route('signup'))->with("error", "Try Again");
       }

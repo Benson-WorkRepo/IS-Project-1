@@ -17,6 +17,7 @@ use App\Http\Controllers\signInFunction;
 Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
+
 Route::get('/login', [signInFunction::class, 'login']) ->name('login');
 Route::post('/login', [signInFunction::class, 'loginPost']) ->name('login.post');
 

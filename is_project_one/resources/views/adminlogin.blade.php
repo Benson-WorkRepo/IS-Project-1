@@ -3,7 +3,8 @@
 @section('content')
 
 <div class = "loginSection">
-<form style = "width: 600px">
+<form action = "{{route('adminlogin.post')}}" method = "POST" style = "width: 600px">
+@csrf
 <div class="idSection">
 <label for="workID">Work ID</label><br>
   <input type="text" id="workID" name="workID">
