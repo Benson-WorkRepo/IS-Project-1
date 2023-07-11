@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('phone');
             $table->string('email');
             $table->integer('ID');
-            $table->string('patientnumber');
+            $table->string('patientnumber')->nullable();;
             $table->boolean('pregnancyStatus')->default(false);
             $table->string('password');
         });
