@@ -25,3 +25,4 @@ Route::post('/signup', [signInFunction::class, 'signupPost']) ->name('signup.pos
 
 Route::get('/adminlogin', [signInFunction::class, 'adminlogin']) ->name('adminlogin');
 Route::post('/adminlogin', [signInFunction::class, 'adminloginPost']) ->name('adminlogin.post');
+Route::get('/logout',[signInFunction::class],'logout') ->name('logout');

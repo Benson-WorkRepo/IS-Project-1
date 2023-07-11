@@ -49,4 +49,9 @@ class signInFunction extends Controller
       return redirect(route('login'))->with("Success", "Login with new credentials");
 
     }
+    function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect(route('login'));
+    }
 }
