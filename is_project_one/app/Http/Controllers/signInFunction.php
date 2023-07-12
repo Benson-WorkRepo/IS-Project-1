@@ -51,7 +51,7 @@ class signInFunction extends Controller
     }
     function adminloginPost(Request $request){
         $request->validate([
-            'workID'=>'required',
+            'workID'=>'required|unique:users',
             'password'=> 'required',
         ]);
         $credentials = $request->only('workID','password');

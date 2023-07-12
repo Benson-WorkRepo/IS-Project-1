@@ -12,7 +12,7 @@
 
   <div class="passwordSection">
     <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword">
+    <input type="password" class="form-control" id="inputPassword" name="password">
   </div>
   <button type="submit" class="submitButton">Submit</button>
 </form>
