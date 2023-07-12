@@ -24,7 +24,7 @@ class signInFunction extends Controller
         ]);
         $credentials = $request->only('idNumber','password');
         if(Auth::attempt($credentials)){
-            return redirect()->intended(route(homepage));
+            return redirect()->intended(route('homepage'));
         }
         return redirect(route('login'))->with("error", "invalid credentials");
 
@@ -49,6 +49,18 @@ class signInFunction extends Controller
       return redirect(route('login'))->with("Success", "Login with new credentials");
 
     }
+    function adminloginPost(Request $request){
+        $request->validate([
+            'workID'=>'required',
+            'password'=> 'required',
+        ]);
+        $credentials = $request->only('workID','password');
+        if(Auth::attempt($credentials)){
+            return redirect()->intended(route('admindashboard'));
+        }
+        return redirect(route('adminlogin'))->with("error", "invalid credentials");
+    }
+
     function logout(){
         Session::flush();
         Auth::logout();
