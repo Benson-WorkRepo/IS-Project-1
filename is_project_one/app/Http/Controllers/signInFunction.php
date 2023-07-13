@@ -31,16 +31,16 @@ class signInFunction extends Controller
     }
     function signupPost(Request $request){
       $request->validate([
-        'firstName' => 'required',
-        'lastName' => 'required',
-        'phoneNo' => 'required',
-        'idNumber' =>'required|unique:customercredentials',
+        'fName' => 'required',
+        'lName' => 'required',
+        'phone' => 'required',
+        'ID' =>'required|unique:customercredentials',
         'password' => 'required'
       ]);  
-      $data['firstName'] = $request->firstName;
-      $data['lastName']  = $request->lastName;
-      $data['phoneNo']   = $request->phoneNo;
-      $data['idNumber'] = $request->idNumber;
+      $data['fName'] = $request->firstName;
+      $data['lName']  = $request->lastName;
+      $data['phone']   = $request->phoneNo;
+      $data['ID'] = $request->idNumber;
       $data['password'] = Hash::make($request->password); 
       $user = customercredentials::create($data);
       if(!$user){
@@ -51,7 +51,7 @@ class signInFunction extends Controller
     }
     function adminloginPost(Request $request){
         $request->validate([
-            'workID'=>'required|unique:customercredentials',
+            'workID'=>'required|unique:doctorcredentials',
             'password'=> 'required',
         ]);
         $credentials = $request->only('workID','password');

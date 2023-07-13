@@ -19,10 +19,10 @@ class customercredentials extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'firstName',
-        'lastName',
-        'phoneNo',
-        'idNumber',
+        'fName',
+        'lName',
+        'phone',
+        'ID',
         'password',
     ];
 
