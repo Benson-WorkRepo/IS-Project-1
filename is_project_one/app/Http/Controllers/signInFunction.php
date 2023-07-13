@@ -34,7 +34,7 @@ class signInFunction extends Controller
         'firstName' => 'required',
         'lastName' => 'required',
         'phoneNo' => 'required',
-        'idNumber' =>'required|unique:users',
+        'idNumber' =>'required|unique:customercredentials',
         'password' => 'required'
       ]);  
       $data['firstName'] = $request->firstName;
@@ -51,7 +51,7 @@ class signInFunction extends Controller
     }
     function adminloginPost(Request $request){
         $request->validate([
-            'workID'=>'required|unique:users',
+            'workID'=>'required|unique:customercredentials',
             'password'=> 'required',
         ]);
         $credentials = $request->only('workID','password');
