@@ -3,7 +3,8 @@
 @section('content')
 
 <div class = "signupSection">
-<form action = "{{route('signup.post')}}" method = "POST" style = "width: 600px">
+@if ($errors->any())<div class="alert alert-danger"><ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach @endif
+<form action = "{{route('signup.post')}}" method = "POST" style = "width: 600px"> //display validation messages
 @csrf
 <div class = "firstName">
     <label for>First Name</label><br>
@@ -23,12 +24,12 @@
 </div>
 <div class="idSection">
 <label for="idNumber">ID No</label><br>
-  <input type="text" id="idNumber" name="idNumber">
+  <input type="text" id="idNumber" name="ID">
   </div>
 
   <div class="passwordSection">
     <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+    <input type="password" class="form-control" id="inputPassword" name="password">
   </div>
   <button type="submit" class="submitButton">Submit</button>
 </form>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\customercredentials;
 class signInFunction extends Controller
 {
     function login(){
@@ -19,10 +19,10 @@ class signInFunction extends Controller
     }
     function loginPost(Request $request){
         $request->validate([
-            'idNumber' =>'required',
+            'ID' =>'required',
             'password' => 'required',
         ]);
-        $credentials = $request->only('idNumber','password');
+        $credentials = $request->only('ID','password');
         if(Auth::attempt($credentials)){
             return redirect()->intended(route('homepage'));
         }
@@ -31,16 +31,16 @@ class signInFunction extends Controller
     }
     function signupPost(Request $request){
       $request->validate([
-        'fName' => 'required',
-        'lName' => 'required',
-        'phone' => 'required',
+        'firstName' => 'required',
+        'lastName' => 'required',
+        'phoneNo' => 'required',
         'ID' =>'required|unique:customercredentials',
         'password' => 'required'
       ]);  
       $data['fName'] = $request->firstName;
       $data['lName']  = $request->lastName;
       $data['phone']   = $request->phoneNo;
-      $data['ID'] = $request->idNumber;
+      $data['ID'] = $request->ID;
       $data['password'] = Hash::make($request->password); 
       $user = customercredentials::create($data);
       if(!$user){

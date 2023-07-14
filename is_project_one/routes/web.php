@@ -14,7 +14,7 @@ use App\Http\Controllers\signInFunction;
 |
 */
 
-Route::get('/', function () {
+Route::get('/layout', function () {
     return view('welcome');
 })->name('homepage');
 

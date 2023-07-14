@@ -7,7 +7,7 @@
 @csrf
 <div class="idSection">
 <label for="idNumber">ID No</label><br>
-  <input type="text" id="idNumber" name="idNumber">
+  <input type="text" id="idNumber" name="ID">
   </div>
 
   <div class="passwordSection">

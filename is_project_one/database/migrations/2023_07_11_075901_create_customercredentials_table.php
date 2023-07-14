@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('fName');
             $table->string('lName');
             $table->integer('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->integer('ID');
-            $table->string('patientnumber')->nullable();;
+            $table->string('patientnumber')->nullable();
             $table->boolean('pregnancyStatus')->default(false);
             $table->string('password');
         });
