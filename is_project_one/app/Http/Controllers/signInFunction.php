@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\customercredentials;
+use App\Models\messaging; //use in other controllers
 class signInFunction extends Controller
 {
     function login(){
@@ -46,6 +47,8 @@ class signInFunction extends Controller
       if(!$user){
         return redirect(route('signup'))->with("error", "Try Again");
       }
+      $sms = new messaging();
+      $sms -> sendSMS("Account created successfully",$request->phoneNo);
       return redirect(route('login'))->with("Success", "Login with new credentials");
 
     }

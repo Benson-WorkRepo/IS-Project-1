@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('customercredentials', function (Blueprint $table) {
             $table->string('fName');
             $table->string('lName');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('email')->nullable();
             $table->integer('ID');
             $table->string('patientnumber')->nullable();
