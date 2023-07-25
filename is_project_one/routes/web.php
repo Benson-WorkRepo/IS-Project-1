@@ -15,7 +15,7 @@ use App\Http\Controllers\signInFunction;
 */
 
 Route::get('/layout', function () {
-    return view('welcome');
+    return view('layout');
 })->name('homepage');
 
 Route::get('/login', [signInFunction::class, 'login']) ->name('login');
